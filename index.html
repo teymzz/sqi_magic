@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="magic.css">
+</head>
+<body>
+    <div class="guessing-game">
+        <div class="header">
+            <div class="main">*Magic number game</div>
+            <div class="sub">
+                Trust you can guess the magic number from 1 - 10 correctly? Try this out!
+            </div>
+        </div>
+        <div class="form-area">
+            <div class="input">
+                <input id="input" min="1" max="10" maxlength="2"> 
+                <button onclick="guess()">Guess</button>
+            </div>
+            <div id="screen">
+                <div id="response">
+                    <div id="message"><div id="message"></div></div>
+                    <div id="magic">The magic number is: <span id="answer" class="answer"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let input = document.getElementById('input');
+        let screen = document.getElementById('screen');
+        // let responseField = document.getElementById('response')
+        let messageField = document.getElementById('message')
+        let answerField = document.getElementById('answer')
+        let magicField = document.getElementById('magic')
+        let tries = 0;
+
+        function guess() {
+            ++tries;
+            let inputValue = +input.value;
+            let dynamicNumber = Math.floor(Math.random() * 10) + 1
+            
+            screen.style.display ='block';
+            magic.style.display ='none';
+
+            if(!inputValue){
+                messageField.innerText = '🤪 Oops, invalid detected!'
+            }else{
+                magic.style.display ='block';
+                if(dynamicNumber == inputValue){
+                    messageField.innerText = `👍 YOU WON!!! @ ${tries} tries.`
+                }else{
+                    messageField.innerText = '😜 Oops, try again!'
+                    input.value = ''
+                }
+                answerField.innerHTML = dynamicNumber
+
+            }
+
+        }
+    </script>
+</body>
+</html>
