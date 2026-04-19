@@ -30,10 +30,8 @@
     <script>
         let input = document.getElementById('input');
         let screen = document.getElementById('screen');
-        // let responseField = document.getElementById('response')
         let messageField = document.getElementById('message')
         let answerField = document.getElementById('answer')
-        let magicField = document.getElementById('magic')
         let tries = 0;
 
         function guess() {
@@ -45,7 +43,7 @@
             magic.style.display ='none';
 
             if(!inputValue){
-                messageField.innerText = '🤪 Oops, invalid detected!'
+                messageField.innerText = '🤪 Oops, invalid input detected!'
             }else{
                 magic.style.display ='block';
                 if(dynamicNumber == inputValue){
@@ -55,7 +53,6 @@
                     input.value = ''
                 }
                 answerField.innerHTML = dynamicNumber
-
             }
 
         }
